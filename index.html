@@ -37,7 +37,6 @@
     .tag.purple { color: var(--accent); border-color: rgba(124,92,252,0.3); background: rgba(124,92,252,0.08); }
     .tag.blue { color: var(--accent2); border-color: rgba(79,142,247,0.3); background: rgba(79,142,247,0.08); }
     .tag.green { color: var(--accent3); border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.08); }
-    /* AUDIO */
     .audio-section { width: 100%; max-width: 680px; background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; padding: 1.5rem 2rem; margin: 0 auto 1.5rem; text-align: left; }
     .audio-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
     .audio-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
@@ -45,10 +44,6 @@
     .audio-duration { font-size: 11px; color: var(--text3); font-family: var(--mono); }
     audio { width: 100%; height: 44px; border-radius: 8px; accent-color: var(--accent); }
     .audio-note { font-size: 11px; color: var(--text3); margin-top: 0.5rem; font-style: italic; }
-    /* CHAPTERS AUDIO */
-    .chapter-audio { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem; }
-    .chapter-audio .audio-label { color: var(--accent2); }
-    /* PRICE */
     .price-block { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem; }
     .price { font-size: 3rem; font-weight: 900; color: var(--text); letter-spacing: -0.04em; }
     .price span { color: var(--accent); }
@@ -89,14 +84,6 @@
     .quote-block { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--surface); border-radius: 0 10px 10px 0; }
     .quote-block p { font-size: 1.05rem; font-style: italic; color: var(--text); margin: 0; }
     .quote-block .author { font-size: 12px; color: var(--accent); margin-top: 0.75rem; font-style: normal; font-weight: 600; }
-    /* PRODUCT AUDIO GUIDE SECTION */
-    .audio-guide-grid { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
-    .audio-guide-item { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 1.25rem 1.5rem; }
-    .audio-guide-item .ag-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
-    .audio-guide-item .ag-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--accent3); }
-    .audio-guide-item .ag-dur { font-family: var(--mono); font-size: 11px; color: var(--text3); }
-    .audio-guide-item h3 { font-size: 14px; margin-bottom: 0.25rem; }
-    .audio-guide-item .ag-desc { font-size: 12px; color: var(--text3); margin-bottom: 0.75rem; }
     footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
     .footer-brand { font-size: 13px; font-weight: 700; color: var(--text2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; }
@@ -131,7 +118,7 @@
     <span class="tag">Benni-os Stack</span>
   </div>
 
-  <!-- LANDING PODCAST 1 — TRAILER -->
+  <!-- LANDING AUDIO 1 — TRAILER (Google Drive M4A) -->
   <div class="audio-section">
     <div class="audio-label">🎙 Audio Preview — Benni-os Voice</div>
     <div class="audio-meta">
@@ -139,7 +126,8 @@
       <div class="audio-duration">5:45</div>
     </div>
     <audio controls preload="metadata">
-      <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/cc00c839-3af1-4d9c-b702-37ef6a6fc754" type="audio/mpeg" />
+      <source src="https://drive.google.com/uc?export=download&id=1TAf_hi9LHu0yggSy8Lznj2TqneP0zGmk" type="audio/mp4" />
+      <source src="https://drive.google.com/uc?export=download&id=1TAf_hi9LHu0yggSy8Lznj2TqneP0zGmk" type="audio/x-m4a" />
     </audio>
     <div class="audio-note">Narrated in the Benni-os operator voice · Powered by NotebookLM</div>
   </div>
@@ -166,7 +154,7 @@
   </ul>
   <p>mcp-forge solves all of this. One decorator. Auto schema. Multi-transport. Built-in testing. Production-ready by default.</p>
 
-  <!-- LANDING PODCAST 2 — PROBLEMA + SOLUÇÃO -->
+  <!-- LANDING AUDIO 2 — PROBLEMA + SOLUÇÃO (Google Drive M4A) -->
   <div class="audio-section" style="margin-top:2rem;max-width:100%;">
     <div class="audio-label">🎙 Deep Dive Audio — Problem &amp; Solution</div>
     <div class="audio-meta">
@@ -174,7 +162,8 @@
       <div class="audio-duration">22:33</div>
     </div>
     <audio controls preload="metadata">
-      <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/645132bd-c7a5-449c-b745-f9abbaf2b62f" type="audio/mpeg" />
+      <source src="https://drive.google.com/uc?export=download&id=1NqDeWHf4CysldIx8fE6WCCxWjiWbHFkB" type="audio/mp4" />
+      <source src="https://drive.google.com/uc?export=download&id=1NqDeWHf4CysldIx8fE6WCCxWjiWbHFkB" type="audio/x-m4a" />
     </audio>
     <div class="audio-note">Full operator breakdown · Benni-os Voice · Powered by NotebookLM</div>
   </div>
@@ -230,91 +219,13 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
 
 <hr/>
 
-<!-- AUDIO GUIDE — PRODUCT -->
-<section id="audio-guide">
-  <div class="section-label">Full Audio Guide — 5 Episodes</div>
-  <h2>The entire playbook. <span class="accent">In operator voice.</span></h2>
-  <p>Five deep-dive episodes narrated in the Benni-os operator voice. Built with NotebookLM. Total runtime: ~62 minutes. Listen chapter by chapter while you build.</p>
-
-  <div class="audio-guide-grid">
-
-    <!-- PRODUTO 1 -->
-    <div class="audio-guide-item">
-      <div class="ag-header">
-        <div class="ag-num">EP. 01</div>
-        <div class="ag-dur">23:31</div>
-      </div>
-      <h3>Introduction &amp; System Vision</h3>
-      <div class="ag-desc">What mcp-forge is, why it exists, and the structural operator advantage. mcp-forge as infrastructure inside the Benni-os OS.</div>
-      <audio controls preload="metadata">
-        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/360d5633-b333-418e-ab2d-4f070422cdc4" type="audio/mpeg" />
-      </audio>
-    </div>
-
-    <!-- PRODUTO 2 -->
-    <div class="audio-guide-item">
-      <div class="ag-header">
-        <div class="ag-num">EP. 02</div>
-        <div class="ag-dur">22:11</div>
-      </div>
-      <h3>Architecture Deep Dive</h3>
-      <div class="ag-desc">ForgeApp internals. Decorator resolution, Pydantic v2 schema generation, transport dispatch, runtime lifecycle.</div>
-      <audio controls preload="metadata">
-        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/b808167f-aee1-4ca0-b21e-17c12c8ba423" type="audio/mpeg" />
-      </audio>
-    </div>
-
-    <!-- PRODUTO 3 -->
-    <div class="audio-guide-item">
-      <div class="ag-header">
-        <div class="ag-num">EP. 03</div>
-        <div class="ag-dur">4:52</div>
-      </div>
-      <h3>Build &amp; Validation</h3>
-      <div class="ag-desc">Building a production tool from zero. @app.tool() + Pydantic v2 — type coercion, nested models, error messages agents can act on.</div>
-      <audio controls preload="metadata">
-        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/34465038-c1d2-4c77-b216-6f60cabdb493" type="audio/mpeg" />
-      </audio>
-    </div>
-
-    <!-- PRODUTO 4 -->
-    <div class="audio-guide-item">
-      <div class="ag-header">
-        <div class="ag-num">EP. 04</div>
-        <div class="ag-dur">6:02</div>
-      </div>
-      <h3>Testing &amp; Deployment</h3>
-      <div class="ag-desc">ForgeTestClient in action. Multi-transport deployment — STDIO, HTTP, SSE. Docker, Railway, Fly.io patterns.</div>
-      <audio controls preload="metadata">
-        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/70681604-7688-43b3-9be5-028ce82b5aa6" type="audio/mpeg" />
-      </audio>
-    </div>
-
-    <!-- PRODUTO 5 -->
-    <div class="audio-guide-item">
-      <div class="ag-header">
-        <div class="ag-num">EP. 05</div>
-        <div class="ag-dur">5:34</div>
-      </div>
-      <h3>Contribs &amp; Benni-os Stack</h3>
-      <div class="ag-desc">Built-in contribs — memory, filesystem, web. How mcp-forge connects to JARVAS-2, Benni Control Plane, and Benni Nexus.</div>
-      <audio controls preload="metadata">
-        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/048286be-23d3-44dd-bd02-e5a9f28b8de8" type="audio/mpeg" />
-      </audio>
-    </div>
-
-  </div>
-</section>
-
-<hr/>
-
 <!-- DELIVERABLES -->
 <section id="what-you-get">
   <div class="section-label">What You Get</div>
   <h2>Everything an operator <span class="accent">actually needs.</span></h2>
   <div class="deliverables">
     <div class="deliverable"><div class="num">01</div><div><h3>Full Operator Playbook</h3><p>8 chapters, operator-grade. No filler. Every concept connected to real execution.</p></div></div>
-    <div class="deliverable"><div class="num">02</div><div><h3>5-Part Audio Guide — Benni-os Voice</h3><p>~62 minutes of operator narration. Built with NotebookLM. Persona Benni-os injected. Listen while you build.</p></div></div>
+    <div class="deliverable"><div class="num">02</div><div><h3>5-Part Audio Guide — Benni-os Voice</h3><p>~62 minutes of operator narration. Built with NotebookLM. Persona Benni-os injected. Unlocked after purchase.</p></div></div>
     <div class="deliverable"><div class="num">03</div><div><h3>Production Code Templates</h3><p>Copy-paste ready templates for STDIO, HTTP, and SSE servers. ForgeTestClient setup included.</p></div></div>
     <div class="deliverable"><div class="num">04</div><div><h3>Operator Workflow Diagram</h3><p>Visual map of how mcp-forge connects to the broader Benni-os stack — from tool to agent to control plane.</p></div></div>
     <div class="deliverable"><div class="num">05</div><div><h3>Lifetime Access + Updates</h3><p>One-time purchase. Every future update included. No subscription, no expiry.</p></div></div>
