@@ -10,283 +10,104 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #080810;
-      --surface: #0f0f1a;
-      --surface2: #16162a;
-      --border: #1e1e3a;
-      --border2: #2a2a4a;
-      --accent: #7c5cfc;
-      --accent2: #4f8ef7;
-      --accent3: #00e5a0;
-      --text: #f0f0ff;
-      --text2: #9090b0;
-      --text3: #5a5a7a;
-      --red: #ff4d6a;
-      --yellow: #ffc940;
-      --mono: 'JetBrains Mono', monospace;
-      --sans: 'Inter', sans-serif;
+      --bg: #080810; --surface: #0f0f1a; --surface2: #16162a;
+      --border: #1e1e3a; --border2: #2a2a4a;
+      --accent: #7c5cfc; --accent2: #4f8ef7; --accent3: #00e5a0;
+      --text: #f0f0ff; --text2: #9090b0; --text3: #5a5a7a;
+      --mono: 'JetBrains Mono', monospace; --sans: 'Inter', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      line-height: 1.7;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(8,8,16,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 56px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,16,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 2rem; height: 56px; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent3); box-shadow: 0 0 8px var(--accent3); animation: pulse 2s infinite; }
     .nav-brand span { font-size: 13px; font-weight: 700; color: var(--text); letter-spacing: 0.08em; text-transform: uppercase; }
     .nav-tag { font-size: 11px; font-weight: 600; color: var(--accent); background: rgba(124,92,252,0.12); border: 1px solid rgba(124,92,252,0.25); border-radius: 4px; padding: 3px 10px; letter-spacing: 0.06em; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 7rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,92,252,0.12) 0%, transparent 70%),
-                  radial-gradient(ellipse 50% 40% at 80% 80%, rgba(79,142,247,0.07) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent3); background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.2);
-      border-radius: 100px; padding: 5px 14px; margin-bottom: 2rem;
-    }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 2rem 4rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,92,252,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(79,142,247,0.07) 0%, transparent 60%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3); background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.2); border-radius: 100px; padding: 5px 14px; margin-bottom: 2rem; }
     .hero-badge .live { width: 6px; height: 6px; border-radius: 50%; background: var(--accent3); animation: pulse 1.5s infinite; }
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-    }
-    h1 .accent { color: var(--accent); }
-    h1 .accent2 { color: var(--accent2); }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--text2);
-      max-width: 600px;
-      margin-bottom: 3rem;
-      font-weight: 400;
-    }
-    .hero-tags {
-      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
-      margin-bottom: 3rem;
-    }
-    .tag {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 5px 12px; border-radius: 4px; border: 1px solid var(--border2);
-      color: var(--text2); background: var(--surface);
-    }
+    h1 { font-size: clamp(2.2rem, 6vw, 4.2rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; max-width: 800px; }
+    h1 .accent { color: var(--accent); } h1 .accent2 { color: var(--accent2); }
+    .hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text2); max-width: 600px; margin-bottom: 3rem; font-weight: 400; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 3rem; }
+    .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; border: 1px solid var(--border2); color: var(--text2); background: var(--surface); }
     .tag.purple { color: var(--accent); border-color: rgba(124,92,252,0.3); background: rgba(124,92,252,0.08); }
     .tag.blue { color: var(--accent2); border-color: rgba(79,142,247,0.3); background: rgba(79,142,247,0.08); }
     .tag.green { color: var(--accent3); border-color: rgba(0,229,160,0.3); background: rgba(0,229,160,0.08); }
-
-    /* ── AUDIO PLAYER ── */
-    .audio-section {
-      width: 100%; max-width: 680px;
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin: 0 auto 2rem;
-      text-align: left;
-    }
-    .audio-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent3); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 6px;
-    }
-    .audio-title {
-      font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 1rem;
-    }
-    audio {
-      width: 100%;
-      height: 44px;
-      border-radius: 8px;
-      filter: invert(1) hue-rotate(200deg) brightness(0.85);
-      accent-color: var(--accent);
-    }
-    .audio-note {
-      font-size: 11px; color: var(--text3); margin-top: 0.75rem; font-style: italic;
-    }
-
-    /* ── PRICE BLOCK ── */
-    .price-block {
-      display: flex; flex-direction: column; align-items: center; gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .price {
-      font-size: 3rem; font-weight: 900; color: var(--text);
-      letter-spacing: -0.04em;
-    }
+    /* AUDIO */
+    .audio-section { width: 100%; max-width: 680px; background: var(--surface); border: 1px solid var(--border2); border-radius: 16px; padding: 1.5rem 2rem; margin: 0 auto 1.5rem; text-align: left; }
+    .audio-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent3); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 6px; }
+    .audio-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .audio-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    .audio-duration { font-size: 11px; color: var(--text3); font-family: var(--mono); }
+    audio { width: 100%; height: 44px; border-radius: 8px; accent-color: var(--accent); }
+    .audio-note { font-size: 11px; color: var(--text3); margin-top: 0.5rem; font-style: italic; }
+    /* CHAPTERS AUDIO */
+    .chapter-audio { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem; }
+    .chapter-audio .audio-label { color: var(--accent2); }
+    /* PRICE */
+    .price-block { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .price { font-size: 3rem; font-weight: 900; color: var(--text); letter-spacing: -0.04em; }
     .price span { color: var(--accent); }
     .price-desc { font-size: 13px; color: var(--text2); }
-    .cta-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--accent); color: #fff;
-      font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
-      padding: 14px 36px; border-radius: 8px; text-decoration: none;
-      border: none; cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-      box-shadow: 0 4px 32px rgba(124,92,252,0.35);
-    }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.02em; padding: 14px 36px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 4px 32px rgba(124,92,252,0.35); }
     .cta-btn:hover { opacity: 0.9; transform: translateY(-1px); }
     .cta-sub { font-size: 11px; color: var(--text3); }
-
-    /* ── SECTION ── */
     section { max-width: 760px; margin: 0 auto; padding: 5rem 2rem; }
     section + section { padding-top: 0; }
-
-    h2 {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 800; letter-spacing: -0.02em;
-      margin-bottom: 1rem; line-height: 1.2;
-    }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.2; }
     h2 .accent { color: var(--accent); }
     h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
     p { color: var(--text2); margin-bottom: 1rem; }
-    .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent2); margin-bottom: 1rem;
-    }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
     hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
-
-    /* ── PROBLEM ── */
     .problem-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
-    .problem-list li {
-      display: flex; gap: 12px; align-items: flex-start;
-      padding: 1rem 1.25rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; font-size: 14px; color: var(--text2);
-    }
+    .problem-list li { display: flex; gap: 12px; align-items: flex-start; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 14px; color: var(--text2); }
     .problem-list li .icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-
-    /* ── WHAT YOU GET ── */
     .deliverables { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
-    .deliverable {
-      display: flex; gap: 1rem; align-items: flex-start;
-      padding: 1.25rem 1.5rem;
-      background: var(--surface); border: 1px solid var(--border2);
-      border-radius: 12px;
-      transition: border-color 0.2s;
-    }
+    .deliverable { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem 1.5rem; background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; transition: border-color 0.2s; }
     .deliverable:hover { border-color: var(--accent); }
-    .deliverable .num {
-      font-size: 11px; font-weight: 700; color: var(--accent);
-      background: rgba(124,92,252,0.12); border: 1px solid rgba(124,92,252,0.2);
-      border-radius: 6px; padding: 4px 8px; flex-shrink: 0; font-family: var(--mono);
-      margin-top: 2px;
-    }
+    .deliverable .num { font-size: 11px; font-weight: 700; color: var(--accent); background: rgba(124,92,252,0.12); border: 1px solid rgba(124,92,252,0.2); border-radius: 6px; padding: 4px 8px; flex-shrink: 0; font-family: var(--mono); margin-top: 2px; }
     .deliverable h3 { margin-bottom: 0.25rem; font-size: 15px; }
     .deliverable p { font-size: 13px; margin: 0; color: var(--text2); }
-
-    /* ── PLAYBOOK CHAPTERS ── */
     .chapters { display: flex; flex-direction: column; gap: 0; margin: 2rem 0; }
-    .chapter {
-      display: flex; gap: 1.25rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .chapter { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
     .chapter:last-child { border-bottom: none; }
-    .chapter-num {
-      font-family: var(--mono); font-size: 12px; font-weight: 700;
-      color: var(--accent3); min-width: 40px; flex-shrink: 0;
-      padding-top: 2px;
-    }
+    .chapter-num { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent3); min-width: 40px; flex-shrink: 0; padding-top: 2px; }
     .chapter h3 { font-size: 15px; margin-bottom: 0.25rem; }
     .chapter p { font-size: 13px; margin: 0; color: var(--text2); }
-
-    /* ── CODE BLOCK ── */
-    .code-block {
-      background: #0a0a14;
-      border: 1px solid var(--border2);
-      border-radius: 10px;
-      padding: 1.5rem;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.6;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-      color: #c8c8e8;
-    }
-    .code-block .kw { color: var(--accent); }
-    .code-block .str { color: var(--accent3); }
-    .code-block .cm { color: var(--text3); }
-    .code-block .fn { color: var(--accent2); }
-
-    /* ── PERSONAS / WHO IS FOR ── */
+    .code-block { background: #0a0a14; border: 1px solid var(--border2); border-radius: 10px; padding: 1.5rem; font-family: var(--mono); font-size: 13px; line-height: 1.6; overflow-x: auto; margin: 1.5rem 0; color: #c8c8e8; }
+    .code-block .kw { color: var(--accent); } .code-block .str { color: var(--accent3); } .code-block .cm { color: var(--text3); } .code-block .fn { color: var(--accent2); }
     .personas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
-    .persona {
-      padding: 1.25rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; text-align: center;
-    }
+    .persona { padding: 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: center; }
     .persona .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
     .persona h3 { font-size: 14px; margin-bottom: 0.25rem; }
     .persona p { font-size: 12px; margin: 0; color: var(--text3); }
-
-    /* ── QUOTE ── */
-    .quote-block {
-      border-left: 3px solid var(--accent);
-      padding: 1rem 1.5rem;
-      margin: 2rem 0;
-      background: var(--surface);
-      border-radius: 0 10px 10px 0;
-    }
+    .quote-block { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--surface); border-radius: 0 10px 10px 0; }
     .quote-block p { font-size: 1.05rem; font-style: italic; color: var(--text); margin: 0; }
     .quote-block .author { font-size: 12px; color: var(--accent); margin-top: 0.75rem; font-style: normal; font-weight: 600; }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
+    /* PRODUCT AUDIO GUIDE SECTION */
+    .audio-guide-grid { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
+    .audio-guide-item { background: var(--surface); border: 1px solid var(--border2); border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .audio-guide-item .ag-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .audio-guide-item .ag-num { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--accent3); }
+    .audio-guide-item .ag-dur { font-family: var(--mono); font-size: 11px; color: var(--text3); }
+    .audio-guide-item h3 { font-size: 14px; margin-bottom: 0.25rem; }
+    .audio-guide-item .ag-desc { font-size: 12px; color: var(--text3); margin-bottom: 0.75rem; }
+    footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
     .footer-brand { font-size: 13px; font-weight: 700; color: var(--text2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
     .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; }
     .footer-links a { font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { font-size: 11px; color: var(--text3); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .hero { padding: 6rem 1.25rem 3rem; }
-      section { padding: 3rem 1.25rem; }
-      .audio-section { padding: 1.25rem; }
-      nav { padding: 0 1.25rem; }
-    }
+    @media (max-width: 600px) { .hero { padding: 6rem 1.25rem 3rem; } section { padding: 3rem 1.25rem; } .audio-section { padding: 1.25rem; } nav { padding: 0 1.25rem; } }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-brand" href="https://benni-os.net" target="_blank">
     <div class="dot"></div>
@@ -295,7 +116,6 @@
   <span class="nav-tag">Operator Playbook</span>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge"><div class="live"></div> Live Product — v1.0</div>
   <h1>Build <span class="accent">MCP Servers</span><br/>like an <span class="accent2">Operator</span>.</h1>
@@ -311,23 +131,24 @@
     <span class="tag">Benni-os Stack</span>
   </div>
 
-  <!-- AUDIO PLAYER -->
+  <!-- LANDING PODCAST 1 — TRAILER -->
   <div class="audio-section">
-    <div class="audio-label"><span>🎙</span> Audio Guide — Benni-os Voice</div>
-    <div class="audio-title">MCP Forge Operator Playbook · Full Audio Walkthrough</div>
+    <div class="audio-label">🎙 Audio Preview — Benni-os Voice</div>
+    <div class="audio-meta">
+      <div class="audio-title">MCP Forge Operator Playbook · Trailer</div>
+      <div class="audio-duration">5:45</div>
+    </div>
     <audio controls preload="metadata">
-      <source src="" type="audio/mpeg" />
-      <!-- ADD NotebookLM MP3 URL above -->
-      Your browser does not support audio playback.
+      <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/cc00c839-3af1-4d9c-b702-37ef6a6fc754" type="audio/mpeg" />
     </audio>
-    <div class="audio-note">Narrated in the Benni-os operator voice. Add the NotebookLM MP3 URL to activate.</div>
+    <div class="audio-note">Narrated in the Benni-os operator voice · Powered by NotebookLM</div>
   </div>
 
   <div class="price-block">
     <div class="price"><span>$</span>57</div>
-    <div class="price-desc">One-time. Lifetime access. No subscription.</div>
+    <div class="price-desc">One-time · Lifetime access · Full Audio Guide included</div>
     <a class="cta-btn" href="#get-access">Get the Playbook →</a>
-    <div class="cta-sub">Playbook + Audio Guide + Operator Workflow</div>
+    <div class="cta-sub">Playbook + 5-part Audio Guide + Operator Workflow</div>
   </div>
 </div>
 
@@ -344,6 +165,19 @@
     <li><span class="icon">📦</span>No reusable patterns — every new server starts from zero.</li>
   </ul>
   <p>mcp-forge solves all of this. One decorator. Auto schema. Multi-transport. Built-in testing. Production-ready by default.</p>
+
+  <!-- LANDING PODCAST 2 — PROBLEMA + SOLUÇÃO -->
+  <div class="audio-section" style="margin-top:2rem;max-width:100%;">
+    <div class="audio-label">🎙 Deep Dive Audio — Problem &amp; Solution</div>
+    <div class="audio-meta">
+      <div class="audio-title">Why Most MCP Servers Fail — And How to Fix It</div>
+      <div class="audio-duration">22:33</div>
+    </div>
+    <audio controls preload="metadata">
+      <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/645132bd-c7a5-449c-b745-f9abbaf2b62f" type="audio/mpeg" />
+    </audio>
+    <div class="audio-note">Full operator breakdown · Benni-os Voice · Powered by NotebookLM</div>
+  </div>
 </section>
 
 <hr/>
@@ -387,10 +221,88 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
     <div class="chapter"><div class="chapter-num">02</div><div><h3>mcp-forge Architecture Deep Dive</h3><p>How ForgeApp works under the hood. Decorator resolution, Pydantic schema generation, transport dispatch, and runtime lifecycle.</p></div></div>
     <div class="chapter"><div class="chapter-num">03</div><div><h3>Building Your First Production Tool</h3><p>From pip install to a running MCP server with real tools. STDIO for Claude Desktop, HTTP for custom clients, SSE for streaming.</p></div></div>
     <div class="chapter"><div class="chapter-num">04</div><div><h3>Input Validation That Actually Works</h3><p>Pydantic v2 patterns for MCP tools. Type coercion, nested models, optional fields, and error messages agents can act on.</p></div></div>
-    <div class="chapter"><div class="chapter-num">05</div><div><h3>Testing MCP Servers Like an Operator</h3><p>ForgeTestClient — call tools without a running server. Integration testing patterns. How to know your server works before the agent finds out it doesn't.</p></div></div>
-    <div class="chapter"><div class="chapter-num">06</div><div><h3>Multi-Transport Deployment</h3><p>Ship to STDIO, HTTP, and SSE from the same codebase. Docker, Railway, Fly.io, and VPS deployment patterns for each transport.</p></div></div>
-    <div class="chapter"><div class="chapter-num">07</div><div><h3>Built-in Contribs — Memory, Filesystem, Web</h3><p>One-line includes for the most common tool categories. How to extend them. When to build custom vs. use contrib.</p></div></div>
-    <div class="chapter"><div class="chapter-num">08</div><div><h3>Operator Workflow — From Tool to Agent Stack</h3><p>How mcp-forge fits inside the Benni-os operator stack. Connecting to JARVAS-2, Benni Control Plane, and Benni Nexus as a gateway layer.</p></div></div>
+    <div class="chapter"><div class="chapter-num">05</div><div><h3>Testing MCP Servers Like an Operator</h3><p>ForgeTestClient — call tools without a running server. Integration testing patterns.</p></div></div>
+    <div class="chapter"><div class="chapter-num">06</div><div><h3>Multi-Transport Deployment</h3><p>Ship to STDIO, HTTP, and SSE from the same codebase. Docker, Railway, Fly.io, and VPS deployment patterns.</p></div></div>
+    <div class="chapter"><div class="chapter-num">07</div><div><h3>Built-in Contribs — Memory, Filesystem, Web</h3><p>One-line includes for the most common tool categories. When to build custom vs. use contrib.</p></div></div>
+    <div class="chapter"><div class="chapter-num">08</div><div><h3>Operator Workflow — From Tool to Agent Stack</h3><p>How mcp-forge fits inside the Benni-os operator stack. Connecting to JARVAS-2, Benni Control Plane, and Benni Nexus.</p></div></div>
+  </div>
+</section>
+
+<hr/>
+
+<!-- AUDIO GUIDE — PRODUCT -->
+<section id="audio-guide">
+  <div class="section-label">Full Audio Guide — 5 Episodes</div>
+  <h2>The entire playbook. <span class="accent">In operator voice.</span></h2>
+  <p>Five deep-dive episodes narrated in the Benni-os operator voice. Built with NotebookLM. Total runtime: ~62 minutes. Listen chapter by chapter while you build.</p>
+
+  <div class="audio-guide-grid">
+
+    <!-- PRODUTO 1 -->
+    <div class="audio-guide-item">
+      <div class="ag-header">
+        <div class="ag-num">EP. 01</div>
+        <div class="ag-dur">23:31</div>
+      </div>
+      <h3>Introduction &amp; System Vision</h3>
+      <div class="ag-desc">What mcp-forge is, why it exists, and the structural operator advantage. mcp-forge as infrastructure inside the Benni-os OS.</div>
+      <audio controls preload="metadata">
+        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/360d5633-b333-418e-ab2d-4f070422cdc4" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!-- PRODUTO 2 -->
+    <div class="audio-guide-item">
+      <div class="ag-header">
+        <div class="ag-num">EP. 02</div>
+        <div class="ag-dur">22:11</div>
+      </div>
+      <h3>Architecture Deep Dive</h3>
+      <div class="ag-desc">ForgeApp internals. Decorator resolution, Pydantic v2 schema generation, transport dispatch, runtime lifecycle.</div>
+      <audio controls preload="metadata">
+        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/b808167f-aee1-4ca0-b21e-17c12c8ba423" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!-- PRODUTO 3 -->
+    <div class="audio-guide-item">
+      <div class="ag-header">
+        <div class="ag-num">EP. 03</div>
+        <div class="ag-dur">4:52</div>
+      </div>
+      <h3>Build &amp; Validation</h3>
+      <div class="ag-desc">Building a production tool from zero. @app.tool() + Pydantic v2 — type coercion, nested models, error messages agents can act on.</div>
+      <audio controls preload="metadata">
+        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/34465038-c1d2-4c77-b216-6f60cabdb493" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!-- PRODUTO 4 -->
+    <div class="audio-guide-item">
+      <div class="ag-header">
+        <div class="ag-num">EP. 04</div>
+        <div class="ag-dur">6:02</div>
+      </div>
+      <h3>Testing &amp; Deployment</h3>
+      <div class="ag-desc">ForgeTestClient in action. Multi-transport deployment — STDIO, HTTP, SSE. Docker, Railway, Fly.io patterns.</div>
+      <audio controls preload="metadata">
+        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/70681604-7688-43b3-9be5-028ce82b5aa6" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <!-- PRODUTO 5 -->
+    <div class="audio-guide-item">
+      <div class="ag-header">
+        <div class="ag-num">EP. 05</div>
+        <div class="ag-dur">5:34</div>
+      </div>
+      <h3>Contribs &amp; Benni-os Stack</h3>
+      <div class="ag-desc">Built-in contribs — memory, filesystem, web. How mcp-forge connects to JARVAS-2, Benni Control Plane, and Benni Nexus.</div>
+      <audio controls preload="metadata">
+        <source src="https://notebook.google.com/notebook/f6409692-5fd3-4b0e-8777-14f5b5bee703/artifact/048286be-23d3-44dd-bd02-e5a9f28b8de8" type="audio/mpeg" />
+      </audio>
+    </div>
+
   </div>
 </section>
 
@@ -402,10 +314,10 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
   <h2>Everything an operator <span class="accent">actually needs.</span></h2>
   <div class="deliverables">
     <div class="deliverable"><div class="num">01</div><div><h3>Full Operator Playbook</h3><p>8 chapters, operator-grade. No filler. Every concept connected to real execution.</p></div></div>
-    <div class="deliverable"><div class="num">02</div><div><h3>Audio Guide — Benni-os Voice</h3><p>Full narrated walkthrough in the Benni-os operator voice. Built with NotebookLM. Listen while you build.</p></div></div>
+    <div class="deliverable"><div class="num">02</div><div><h3>5-Part Audio Guide — Benni-os Voice</h3><p>~62 minutes of operator narration. Built with NotebookLM. Persona Benni-os injected. Listen while you build.</p></div></div>
     <div class="deliverable"><div class="num">03</div><div><h3>Production Code Templates</h3><p>Copy-paste ready templates for STDIO, HTTP, and SSE servers. ForgeTestClient setup included.</p></div></div>
     <div class="deliverable"><div class="num">04</div><div><h3>Operator Workflow Diagram</h3><p>Visual map of how mcp-forge connects to the broader Benni-os stack — from tool to agent to control plane.</p></div></div>
-    <div class="deliverable"><div class="num">05</div><div><h3>Lifetime Access + Updates</h3><p>One-time purchase. Every future update to the playbook is included. No subscription, no expiry.</p></div></div>
+    <div class="deliverable"><div class="num">05</div><div><h3>Lifetime Access + Updates</h3><p>One-time purchase. Every future update included. No subscription, no expiry.</p></div></div>
   </div>
 </section>
 
@@ -425,7 +337,6 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
 
 <hr/>
 
-<!-- QUOTE -->
 <section>
   <div class="quote-block">
     <p>"The difference is not in the speed. It is in the architecture."</p>
@@ -435,7 +346,6 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
 
 <hr/>
 
-<!-- CTA FINAL -->
 <section id="get-access" style="text-align:center;">
   <div class="section-label">Get Access</div>
   <h2>One playbook. <span class="accent">Permanent operator advantage.</span></h2>
@@ -443,13 +353,12 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
   <br/>
   <div class="price-block">
     <div class="price"><span>$</span>57</div>
-    <div class="price-desc">One-time · Lifetime access · Audio Guide included</div>
+    <div class="price-desc">One-time · Lifetime access · 5-Part Audio Guide included</div>
     <a class="cta-btn" href="#">Get the Playbook →</a>
     <div class="cta-sub">Secure checkout · Instant access · No subscription</div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Benni-os · Operator Stack</div>
   <div class="footer-links">
