@@ -86,7 +86,7 @@
     .quote-block .author { font-size: 12px; color: var(--accent); margin-top: 0.75rem; font-style: normal; font-weight: 600; }
     footer { border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
     .footer-brand { font-size: 13px; font-weight: 700; color: var(--text2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0; flex-wrap: wrap; }
     .footer-links a { font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { font-size: 11px; color: var(--text3); }
@@ -106,10 +106,7 @@
 <div class="hero">
   <div class="hero-badge"><div class="live"></div> Live Product — v1.0</div>
   <h1>Build <span class="accent">MCP Servers</span><br/>like an <span class="accent2">Operator</span>.</h1>
-  <p class="hero-sub">
-    Stop reading docs. Start shipping tools. The complete operator guide to building
-    production-grade MCP servers with <strong>mcp-forge</strong> — the FastAPI moment for the Model Context Protocol.
-  </p>
+  <p class="hero-sub">Stop reading docs. Start shipping tools. The complete operator guide to building production-grade MCP servers with <strong>mcp-forge</strong> — the FastAPI moment for the Model Context Protocol.</p>
   <div class="hero-tags">
     <span class="tag purple">mcp-forge</span>
     <span class="tag blue">Python 3.11+</span>
@@ -117,8 +114,6 @@
     <span class="tag">STDIO · HTTP · SSE</span>
     <span class="tag">Benni-os Stack</span>
   </div>
-
-  <!-- LANDING AUDIO 1 — TRAILER (Google Drive M4A) -->
   <div class="audio-section">
     <div class="audio-label">🎙 Audio Preview — Benni-os Voice</div>
     <div class="audio-meta">
@@ -131,7 +126,6 @@
     </audio>
     <div class="audio-note">Narrated in the Benni-os operator voice · Powered by NotebookLM</div>
   </div>
-
   <div class="price-block">
     <div class="price"><span>$</span>57</div>
     <div class="price-desc">One-time · Lifetime access · Full Audio Guide included</div>
@@ -140,7 +134,6 @@
   </div>
 </div>
 
-<!-- PROBLEM -->
 <section id="problem">
   <div class="section-label">The Problem</div>
   <h2>Most MCP servers are <span class="accent">built wrong.</span></h2>
@@ -153,10 +146,8 @@
     <li><span class="icon">📦</span>No reusable patterns — every new server starts from zero.</li>
   </ul>
   <p>mcp-forge solves all of this. One decorator. Auto schema. Multi-transport. Built-in testing. Production-ready by default.</p>
-
-  <!-- LANDING AUDIO 2 — PROBLEMA + SOLUÇÃO (Google Drive M4A) -->
   <div class="audio-section" style="margin-top:2rem;max-width:100%;">
-    <div class="audio-label">🎙 Deep Dive Audio — Problem &amp; Solution</div>
+    <div class="audio-label">🎙 Deep Dive — Problem & Solution</div>
     <div class="audio-meta">
       <div class="audio-title">Why Most MCP Servers Fail — And How to Fix It</div>
       <div class="audio-duration">22:33</div>
@@ -171,7 +162,6 @@
 
 <hr/>
 
-<!-- WHAT IS -->
 <section id="what-is">
   <div class="section-label">The Tool</div>
   <h2>What is <span class="accent">mcp-forge</span>?</h2>
@@ -200,41 +190,38 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
 
 <hr/>
 
-<!-- CHAPTERS -->
 <section id="chapters">
   <div class="section-label">The Playbook</div>
   <h2>8 Chapters. <span class="accent">Zero fluff.</span></h2>
   <p>Every chapter is operator-grade — built to get you from zero to production, not to pad a page count.</p>
   <div class="chapters">
-    <div class="chapter"><div class="chapter-num">01</div><div><h3>Why MCP and Why Now</h3><p>The infrastructure shift happening in AI right now. Why MCP is the TCP/IP of agent tooling and why operators who get this early win.</p></div></div>
-    <div class="chapter"><div class="chapter-num">02</div><div><h3>mcp-forge Architecture Deep Dive</h3><p>How ForgeApp works under the hood. Decorator resolution, Pydantic schema generation, transport dispatch, and runtime lifecycle.</p></div></div>
-    <div class="chapter"><div class="chapter-num">03</div><div><h3>Building Your First Production Tool</h3><p>From pip install to a running MCP server with real tools. STDIO for Claude Desktop, HTTP for custom clients, SSE for streaming.</p></div></div>
-    <div class="chapter"><div class="chapter-num">04</div><div><h3>Input Validation That Actually Works</h3><p>Pydantic v2 patterns for MCP tools. Type coercion, nested models, optional fields, and error messages agents can act on.</p></div></div>
+    <div class="chapter"><div class="chapter-num">01</div><div><h3>Why MCP and Why Now</h3><p>The infrastructure shift in AI. Why MCP is the TCP/IP of agent tooling and why operators who get this early win.</p></div></div>
+    <div class="chapter"><div class="chapter-num">02</div><div><h3>mcp-forge Architecture Deep Dive</h3><p>ForgeApp internals. Decorator resolution, Pydantic schema generation, transport dispatch, runtime lifecycle.</p></div></div>
+    <div class="chapter"><div class="chapter-num">03</div><div><h3>Building Your First Production Tool</h3><p>From pip install to a running MCP server. STDIO for Claude Desktop, HTTP for custom clients, SSE for streaming.</p></div></div>
+    <div class="chapter"><div class="chapter-num">04</div><div><h3>Input Validation That Actually Works</h3><p>Pydantic v2 patterns. Type coercion, nested models, optional fields, error messages agents can act on.</p></div></div>
     <div class="chapter"><div class="chapter-num">05</div><div><h3>Testing MCP Servers Like an Operator</h3><p>ForgeTestClient — call tools without a running server. Integration testing patterns.</p></div></div>
-    <div class="chapter"><div class="chapter-num">06</div><div><h3>Multi-Transport Deployment</h3><p>Ship to STDIO, HTTP, and SSE from the same codebase. Docker, Railway, Fly.io, and VPS deployment patterns.</p></div></div>
+    <div class="chapter"><div class="chapter-num">06</div><div><h3>Multi-Transport Deployment</h3><p>Ship to STDIO, HTTP, and SSE from the same codebase. Docker, Railway, Fly.io deployment patterns.</p></div></div>
     <div class="chapter"><div class="chapter-num">07</div><div><h3>Built-in Contribs — Memory, Filesystem, Web</h3><p>One-line includes for the most common tool categories. When to build custom vs. use contrib.</p></div></div>
-    <div class="chapter"><div class="chapter-num">08</div><div><h3>Operator Workflow — From Tool to Agent Stack</h3><p>How mcp-forge fits inside the Benni-os operator stack. Connecting to JARVAS-2, Benni Control Plane, and Benni Nexus.</p></div></div>
+    <div class="chapter"><div class="chapter-num">08</div><div><h3>Operator Workflow — From Tool to Agent Stack</h3><p>How mcp-forge fits inside Benni-os. Connecting to JARVAS-2, Control Plane, and Benni Nexus.</p></div></div>
   </div>
 </section>
 
 <hr/>
 
-<!-- DELIVERABLES -->
 <section id="what-you-get">
   <div class="section-label">What You Get</div>
   <h2>Everything an operator <span class="accent">actually needs.</span></h2>
   <div class="deliverables">
     <div class="deliverable"><div class="num">01</div><div><h3>Full Operator Playbook</h3><p>8 chapters, operator-grade. No filler. Every concept connected to real execution.</p></div></div>
-    <div class="deliverable"><div class="num">02</div><div><h3>5-Part Audio Guide — Benni-os Voice</h3><p>~62 minutes of operator narration. Built with NotebookLM. Persona Benni-os injected. Unlocked after purchase.</p></div></div>
+    <div class="deliverable"><div class="num">02</div><div><h3>5-Part Audio Guide — Benni-os Voice</h3><p>~62 minutes of operator narration. Built with NotebookLM. Unlocked after purchase.</p></div></div>
     <div class="deliverable"><div class="num">03</div><div><h3>Production Code Templates</h3><p>Copy-paste ready templates for STDIO, HTTP, and SSE servers. ForgeTestClient setup included.</p></div></div>
-    <div class="deliverable"><div class="num">04</div><div><h3>Operator Workflow Diagram</h3><p>Visual map of how mcp-forge connects to the broader Benni-os stack — from tool to agent to control plane.</p></div></div>
+    <div class="deliverable"><div class="num">04</div><div><h3>Operator Workflow Diagram</h3><p>Visual map of how mcp-forge connects to the broader Benni-os stack.</p></div></div>
     <div class="deliverable"><div class="num">05</div><div><h3>Lifetime Access + Updates</h3><p>One-time purchase. Every future update included. No subscription, no expiry.</p></div></div>
   </div>
 </section>
 
 <hr/>
 
-<!-- WHO IS FOR -->
 <section id="for-who">
   <div class="section-label">Who This Is For</div>
   <h2>Built for <span class="accent">operators</span>, not readers.</h2>
@@ -260,7 +247,7 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
 <section id="get-access" style="text-align:center;">
   <div class="section-label">Get Access</div>
   <h2>One playbook. <span class="accent">Permanent operator advantage.</span></h2>
-  <p>Everything you need to build, test, and deploy MCP servers that actually work in production — with the Benni-os operator mindset baked in.</p>
+  <p>Everything you need to build, test, and deploy MCP servers that actually work in production.</p>
   <br/>
   <div class="price-block">
     <div class="price"><span>$</span>57</div>
@@ -276,6 +263,9 @@ app = <span class="fn">ForgeApp</span>(<span class="str">"my-operator-server"</s
     <a href="https://benni-os.net" target="_blank">benni-os.net</a>
     <a href="https://github.com/benni-os" target="_blank">GitHub</a>
     <a href="https://github.com/benni-os/mcp-forge" target="_blank">mcp-forge</a>
+    <a href="https://www.youtube.com/@Benni-OS1" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/benni_os/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61585892183984" target="_blank">Facebook</a>
   </div>
   <div class="footer-copy">© 2026 Benni-os. All rights reserved.</div>
 </footer>
